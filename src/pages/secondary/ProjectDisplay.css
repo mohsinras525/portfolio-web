@@ -1,0 +1,10 @@
+.button-div {
+    margin: 20px 80px;
+}
+@media only screen and (max-width: 462px) {
+    .button-div {
+        display: none;
+        background-color: blue;
+    }   
+
+}

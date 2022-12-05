@@ -1,0 +1,30 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity:0;
+    transition: opacity 0.3s ease-in-out;
+    background: black;
+    cursor: pointer;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    color: white;
+    text-align: center;
+}
+
+.card:hover .overlay {
+    opacity: 0.6;
+}
+
+.image-class {
+    min-height: 150px;
+    max-height: 150px;
+    height: 150px;
+}
