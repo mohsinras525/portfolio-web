@@ -25,20 +25,20 @@ exports.addProject = async (req, res, next) => {
 
 
 exports.getProjects = async (req, res, next) => {
-    let projects;
     try {
+        let projects;
         projects = await Project.find()
+        res.status(200).json({
+            success: true,
+            message: "projects found successfully",
+            projects
+        })
     } catch (error) {
         res.status(404).json({
             success: false,
             message: "projects not found"
         })
     }
-    res.status(200).json({
-        success: true,
-        message: "projects found successfully",
-        projects
-    })
 
 }
 
