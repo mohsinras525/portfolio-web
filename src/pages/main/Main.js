@@ -15,9 +15,9 @@ const Main = () => {
     fetch("http://localhost:8000/api/project/getproject", requestOptions)
       .then(response => response.text())
       .then(result => {
-        console.log("result==>",JSON.parse(result))
+        // console.log("result==>",JSON.parse(result))
         let data = JSON.parse(result)
-        console.log(data.projects)
+        // console.log(data.projects)
         setData([...data.projects])
       }
         )
@@ -28,7 +28,7 @@ const Main = () => {
     getData()
   },[])
 
-  console.log(data)
+  // console.log(data)
   return (
     <>
       <Hero />
