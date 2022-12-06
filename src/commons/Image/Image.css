@@ -28,3 +28,9 @@
     max-height: 150px;
     height: 150px;
 }
+
+img{
+    width: 300px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}

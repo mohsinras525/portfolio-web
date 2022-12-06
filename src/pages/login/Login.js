@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import './Login.css'
 
 const Login = () => {
@@ -7,6 +8,7 @@ const Login = () => {
         { email: '', password: '' }
     )
 
+    const navigate = useNavigate()
     const handleFormChange = (event) => {
         // const file = URL.createObjectURL(event.target.files[0])
         // console.log()
@@ -19,8 +21,9 @@ const Login = () => {
 
     const submit = (e) => {
         e.preventDefault();  // is used for to stop reload page on submit
-        let { email,password} = inputFields
-        // console.log(email,password)
+        let { email, password } = inputFields
+        console.log(email, password)
+        setInputFields( { email: '', password: '' })
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -40,22 +43,27 @@ const Login = () => {
         fetch("http://147.182.217.131:8001/users/login", requestOptions)
             .then(response => response.text())
             .then(result => {
-                // console.log(result)
+                console.log(result)
                 let user = JSON.parse(result)
-                let {success} = user
-                if(success){
+                let { success } = user
+                if (success) {
                     localStorage.setItem('user', result)
+                    console.log(success)
+                    navigate('/')
+
                 }
             })
-            .catch(error => console.log('error', error));
+            .catch(error => {
+                console.log('error', error)
+                alert("Something wrong ")
+            });
     }
-
 
     return (
         <>
             <div className='container-fluid' style={{ height: '100vh' }}>
                 <div className="container border-rounded mt-5" style={{ height: '80%', maxHeight: '100vh', minHeight: '85vh' }}>
-                    <form className='m-5' >
+                    <form className='m-5'>
                         <h3 className='mb-3'>Login In</h3>
                         <div className="mb-3">
                             <label>Email address</label>
