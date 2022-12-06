@@ -37,7 +37,7 @@ const Login = () => {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:8000/users/login", requestOptions)
+        fetch("http://147.182.217.131:8001/users/login", requestOptions)
             .then(response => response.text())
             .then(result => {
                 // console.log(result)

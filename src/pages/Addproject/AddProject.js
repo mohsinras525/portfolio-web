@@ -30,7 +30,7 @@ const AddProject = () => {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:8000/uploadimage", requestOptions)
+    fetch("http://147.182.217.131:8001/uploadimage", requestOptions)
       .then(response => response.json())
       .then(result => {
         console.log("result==>", result.url)
@@ -39,7 +39,7 @@ const AddProject = () => {
       })
       .catch(error => console.log('error', error));
 
-    let image = await axios.get(`http://localhost:8000/uploads/${name}`)
+    let image = await axios.get(`http://147.182.217.131:8001/uploads/${name}`)
 
     if (!image) (
       alert("error")
@@ -73,7 +73,7 @@ const AddProject = () => {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:8000/api/project/add", requestOptions)
+    fetch("http://147.182.217.131:8001/api/project/add", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

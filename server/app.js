@@ -46,12 +46,16 @@ app.use("/uploads", express.static('uploads'))
 app.post("/uploadimage", upload.single("image"), function (req, res, next) {
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
-  const host = req.hostname;
-  const filePath = process.env.URL + req.file.filename;
-  console.log(req.file, req.body)
-  return res.status(200).json({
-     url: filePath
-    })
+  try {
+    const host = req.hostname;
+    const filePath = process.env.URL + req.file.filename;
+    console.log(req.file, req.body)
+    return res.status(200).json({
+       url: filePath
+      })
+  } catch (e){
+    return res.status(200).json(e)
+  }
 })
 // dotenv setup
 require('dotenv').config({ path: './config/config.env' })
