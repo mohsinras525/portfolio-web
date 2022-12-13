@@ -5,10 +5,9 @@ import Modal from 'react-bootstrap/Modal';
 
 function MyVerticallyCenteredModal(props) {
   const { src } = props
-  // console.log(src)
   return (
     <Modal
-      style={{}}
+      style={{maxHeight:'100vh'}}
       {...props}
       size="xl"
       aria-labelledby="contained-modal-title-vcenter"
@@ -16,20 +15,23 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {src.title}
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className='row'>
+      <Modal.Body className='row m-auto'>
           <div className='col-md-6 text-center'>
-          <img style={{width:'100%',height:'100%' }} src={src.image}/>
+          <img style={{width:'100%',height:'100%',objectFit:'scale-down' }} src={src.image}/>
           </div>
           <div className='col-md-6'>
-          <h5 className=''>Language</h5>
-          <p className=''>{src.language}</p>
-          <h5 className=''>Technology Stack</h5>
+          <h5 className='' style={{fontFamily:'cursive'}}>Title</h5>
+          <p className=''>{src.title}</p>
+          <h5 className='' style={{fontFamily:'cursive'}}>Technology Stack</h5>
           <p className=''>{src.technologystack}</p>
-          <h5 className=''>Description</h5>
+          <h5 className='' style={{fontFamily:'cursive'}}>Description</h5>
           <p className='text-justify'>{src.description}</p>
+          <h5 className='' style={{fontFamily:'cursive'}}>Link</h5>
+          <p className='text-justify'><a href={src.link}>{src.link}</a></p>
+          <h5 className='' style={{fontFamily:'cursive'}}>Login Credentials</h5>
+          <p className='text-justify'>Email : {src.dummyemail}  Password : {src.password}</p>
           </div>
       </Modal.Body>
       <Modal.Footer>

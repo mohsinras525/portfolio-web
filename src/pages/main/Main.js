@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import Hero from '../../commons/hero/Hero'
+// import Hero from '../../commons/hero/Hero'
 import Image from '../../commons/Image/Image'
 
 
@@ -33,15 +33,19 @@ const Main = () => {
   // console.log(data)
   return (
     <>
-      <Hero />
-      <div className='container-fluid bg-light py-5'>
-        <div className='container-fluid'>
+      {/* <Hero /> */}
+      <div className='container-fluid bg-light py-5' style={{minHeight:'100vh'}} >
+        <div className='container-fluid' style={{minHeight:'100vh'}}>
           <div className="row p-3 ">
+          {/* <main class="grid"> */}
+   
+    
             {data?.map((elem,id) => {
               return(
                 <Image src={elem} key={id} getData={getData} />
-              )
-            } )}
+                )
+              } )}
+              {/* </main> */}
           </div>
         </div>
       </div>

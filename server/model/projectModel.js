@@ -13,10 +13,6 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    language: {
-        type: String,
-        required: true
-    },
     technologystack: {
         type: String,
         required: true
@@ -27,6 +23,14 @@ const projectSchema = new mongoose.Schema({
     },
     image: {
         type: String,
+    },
+    dummyemail: {
+        type: String,
+        required:true
+    },
+    password: {
+        type: String,
+        required:true
     }
 })
 

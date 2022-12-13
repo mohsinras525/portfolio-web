@@ -1,5 +1,12 @@
 .button-div {
     margin: 20px 80px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.width {
+    width: 600px !important;
 }
 @media only screen and (max-width: 462px) {
     .button-div {

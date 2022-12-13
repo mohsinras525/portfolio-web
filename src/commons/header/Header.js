@@ -1,21 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({success}) => {
+  console.log("Mohsin1 props ==> ", success)
+
   return (
     <>
-      <nav class="navbar navbar-dark navbar-expand-sm bg-dark d-flex justify-content-around fixed-top">
-        <h2 class="navbar-brand pt-2 px-1">Portfolio</h2>
-        <ul class="nav" style={{ listStyle: "none", textDecoration: "none" }}>
-          <li class="nav-item">
-            <Link class="nav-link text-light" to="/">Home</Link>
+      <nav className="navbar navbar-dark navbar-expand-sm bg-dark d-flex justify-content-around fixed-top">
+        <h1 className="navbar-brand pt-2 px-1" style={{fontFamily:'cursive'}}>Portfolio</h1>
+        <ul className="nav" style={{ listStyle: "none", textDecoration: "none" }}>
+          <li className="nav-item">
+            <Link className="nav-link text-light" to="/" style={{fontFamily:'cursive'}}>Home</Link>
           </li>
-          <li class="nav-item">
-            <Link class="nav-link text-light" to="/projects">Projects</Link>
+          <li className="nav-item">
+            <Link className="nav-link text-light" to="/projects" style={{fontFamily:'cursive'}}>Projects</Link>
           </li>
-          <li class="nav-item">
-            <Link class="nav-link text-light" to="/addproject">Add</Link>
-          </li>
+          {success && <li class="nav-item">
+            <Link class="nav-link text-light" to="/addproject" style={{fontFamily:'cursive'}}>Add</Link>
+          </li>}
         </ul>
         <Link to="/login">
           <button className='btn-primary px-2'>Login</button>

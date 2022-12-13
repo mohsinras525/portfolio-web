@@ -3,14 +3,14 @@ import './Image.css'
 import MyVerticallyCenteredModal from '../modal/Modal'
 import { BiLinkAlt, BiExpandAlt } from "react-icons/bi";
 import { BsFillTrashFill } from "react-icons/bs";
-import axios from 'axios';
+// import axios from 'axios';
 
 
-const Image = ({src,getData}) => {
+const Image = ({ src, getData }) => {
 
-    console.log(src)
-    const [link , setLink] = useState('')
-    const { image, title} = src
+    // console.log(src)
+    const [link, setLink] = useState('')
+    const { image, title } = src
     const [modalShow, setModalShow] = useState(false);
     const [deleteBtn, setDeleteBtn] = useState('false')
 
@@ -20,32 +20,32 @@ const Image = ({src,getData}) => {
         setLink(link)
     }
 
-    const getId = async(src) => {
-        const {_id} = src
+    const getId = async (src) => {
+        const { _id } = src
         console.log(_id)
-       
+
         var requestOptions = {
             method: 'DELETE',
             redirect: 'follow'
-          };
-          
-          fetch(`http://localhost:8000/api/project/remove/${_id}`, requestOptions)
+        };
+
+        fetch(`http://localhost:8000/api/project/remove/${_id}`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)
-                const {success} = JSON.parse(result)
+                const { success } = JSON.parse(result)
                 console.log(success)
-                if(success){
+                if (success) {
                     getData()
                 }
 
             })
             .catch(error => console.log('error', error));
-        
+
     }
 
     let user = localStorage.getItem('user')
-    user =  JSON.parse(user)
+    user = JSON.parse(user)
 
     return (
         <>
@@ -63,7 +63,7 @@ const Image = ({src,getData}) => {
                         </div>
                     </div>
                     <div className="card-body">
-                        <p className="card-text">{title}</p>
+                        <p className="card-text" style={{fontFamily:'cursive'}}>{title}</p>
                     </div>
                 </div>
             </div>

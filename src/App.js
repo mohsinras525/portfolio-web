@@ -8,19 +8,34 @@ import ProjectDisplay from './pages/secondary/ProjectDisplay';
 import AddProject from './pages/Addproject/AddProject'
 import Login from './pages/login/Login';
 import ProtectedRoute from './utils/ProtectedRoute';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState({})
 
+  
+  console.log("Mohsin Main")
+  const getUser = () => {
+    let data = JSON.parse(window.localStorage.getItem('user'));
+    // console.log(data);
+    setUser(data)
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  console.log("Mohsin 2",user)
   return (
     <>
-      <Header />
+      <Header success={user}/>
       <Routes>
         <Route path='/' element={<Main />} />
         <Route element={<ProtectedRoute />}>
-        <Route path='/addproject' element={<AddProject />} exact/>
+          <Route path='/addproject' element={<AddProject />} exact />
         </Route>
         <Route path='/projects' element={<ProjectDisplay />} />
-          <Route path='/login' element={<Login />} exact/>
+        <Route path='/login' element={<Login />} exact />
       </Routes>
       <Footer />
     </>

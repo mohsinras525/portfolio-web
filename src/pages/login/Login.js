@@ -50,6 +50,7 @@ const Login = () => {
                     localStorage.setItem('user', result)
                     console.log(success)
                     navigate('/')
+                    window.location.reload(true)
 
                 }
             })

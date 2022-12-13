@@ -56,7 +56,7 @@ const AddProject = () => {
   const submit = (e) => {
     e.preventDefault();  // is used for to stop reload page on submit
     console.log(inputFields)
-    const { title, description, technologystack, languageused, link, Category, image } = inputFields
+    const { title, description, technologystack, link, Category, image, dummyemail,password } = inputFields
     if (urlPatternValidation(link)) {
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
@@ -65,10 +65,11 @@ const AddProject = () => {
         "title": title,
         "description": description,
         "link": link,
-        "language": languageused,
         "technologystack": technologystack,
         "image": image,
-        "category": Category
+        "category": Category,
+        "dummyemail" :dummyemail,
+        "password": password
       });
 
       var requestOptions = {
@@ -95,7 +96,7 @@ const AddProject = () => {
       alert("Please Enter Correct url")
     }
 
-    setInputFields({ title: '', description: '', technologystack: '', languageused: '', link: '', Category: '', image: '' })
+    setInputFields({ title: '', description: '', technologystack: '', link: '', Category: '', image: '', dummyemail, password })
 
   }
 
@@ -104,7 +105,7 @@ const AddProject = () => {
       <div className='container-fluid ' style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="container border-rounded mt-5" style={{ height: '80%', maxnHeight: '100vh', minHeight: '70vh' }} >
           <div className='text-center pt-2' >
-            <h2 className='mb-3 mt-3'>Add Project</h2>
+            <h2 className='mb-5 mt-3'style={{fontFamily:'cursive'}}>Add Project</h2>
           </div>
           <div className="row pt-2">
             <div className='form-group col-md-6 mb-3'>
@@ -131,14 +132,7 @@ const AddProject = () => {
                 onChange={handleFormChange}
               />
             </div>
-            <div className='form-group col-md-6 mb-3 '>
-              <input
-                className='form-control' placeholder='Language Used'
-                name='languageused'
-                value={inputFields.languageused}
-                onChange={handleFormChange}
-              />
-            </div>
+           
             <div className='form-group col-md-6 mb-3 '>
               <select className='form-control'
                 name='Category'
@@ -162,6 +156,22 @@ const AddProject = () => {
             </div>
             <div className='form-group col-md-6 mb-3 '>
               <input
+                className='form-control' placeholder='Email'
+                name='dummyemail'
+                value={inputFields.dummyemail}
+                onChange={handleFormChange}
+              />
+            </div>
+            <div className='form-group col-md-6 mb-3 '>
+              <input
+                className='form-control' placeholder='Password'
+                name='password'
+                value={inputFields.password}
+                onChange={handleFormChange}
+              />
+            </div>
+            <div className='form-group col-md-6 mb-3 '>
+              <input
                 className='form-control' placeholder='Image'
                 type='file'
                 name='image'
@@ -171,7 +181,7 @@ const AddProject = () => {
               />
             </div>
             <div className="d-grid gap-2">
-              <button className="btn btn-primary mt-2" type="button" onClick={(e) => { submit(e) }}>Add Project</button>
+              <button className="btn btn-primary mt-3" type="button" onClick={(e) => { submit(e) }}>Add Project</button>
             </div>
           </div>
         </div>

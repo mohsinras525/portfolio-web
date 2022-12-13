@@ -50,7 +50,7 @@ const ProjectDisplay = () => {
     <div>
       <div className='container-fluid bg-light py-5 ' style={{ minHeight: '88vh', marginTop:"40px" }}>
         <div className='menu-tabs text-center button-div'>
-          <div className="row align-items-center">
+          <div className="row align-items-center width">
             <div className="col">
               <button className='btn btn-primary' onClick={() => { filterItem('web app') }}>Web Apps</button>
             </div>
