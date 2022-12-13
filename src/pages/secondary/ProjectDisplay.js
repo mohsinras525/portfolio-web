@@ -13,7 +13,8 @@ const ProjectDisplay = () => {
       redirect: 'follow'
     };
 
-    fetch("http://147.182.217.131:8001/api/project/getproject", requestOptions)
+    // fetch("http://147.182.217.131:8001/api/project/getproject", requestOptions)
+    fetch("http://localhost:8000/api/project/getproject", requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log("result==>", JSON.parse(result))
@@ -34,7 +35,7 @@ const ProjectDisplay = () => {
       redirect: 'follow'
     };
 
-    fetch(`http://147.182.217.131:8001/api/project/getcategory?category=${category}`, requestOptions)
+    fetch(`http://localhost:8000/api/project/getcategory?category=${category}`, requestOptions)
       .then(response => response.text())
       .then(result => {
         // console.log("result==>", JSON.parse(result))

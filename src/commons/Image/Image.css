@@ -26,11 +26,11 @@
 .image-class {
     min-height: 150px;
     max-height: 150px;
-    height: 150px;
+    height: 200px;
 }
 
 img{
-    width: 300px;
+    width: 100%;
     vertical-align: middle;
     margin-bottom: 20px;
 }

@@ -32,7 +32,7 @@ const AddProject = () => {
       redirect: 'follow'
     };
 
-    fetch("http://147.182.217.131:8001/uploadimage", requestOptions)
+    fetch("http://localhost:8000/uploadimage", requestOptions)
       .then(response => response.json())
       .then(result => {
         console.log("result==>", result.url)
@@ -41,7 +41,7 @@ const AddProject = () => {
       })
       .catch(error => console.log('error', error));
 
-    let image = await axios.get(`http://147.182.217.131:8001/uploads/${name}`)
+    let image = await axios.get(`http://localhost:8000/uploads/${name}`)
 
     if (!image) (
       alert("error")
@@ -78,7 +78,7 @@ const AddProject = () => {
         redirect: 'follow'
       };
 
-      fetch("http://147.182.217.131:8001/api/project/add", requestOptions)
+      fetch("http://localhost:8000/api/project/add", requestOptions)
         .then(response => response.text())
         .then(result => {
           console.log(result)
@@ -101,10 +101,10 @@ const AddProject = () => {
 
   return (
     <>
-      <div className='container-fluid ' style={{ height: '110vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div className="container border-rounded mt-5" style={{ height: '80%', maxnHeight: '100vh', minHeight: '85vh' }} >
+      <div className='container-fluid ' style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="container border-rounded mt-5" style={{ height: '80%', maxnHeight: '100vh', minHeight: '70vh' }} >
           <div className='text-center pt-2' >
-            <h2 className='mb-3'>Add Project</h2>
+            <h2 className='mb-3 mt-3'>Add Project</h2>
           </div>
           <div className="row pt-2">
             <div className='form-group col-md-6 mb-3'>

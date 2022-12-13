@@ -2,9 +2,11 @@ import React,{useEffect,useState} from 'react'
 import Hero from '../../commons/hero/Hero'
 import Image from '../../commons/Image/Image'
 
+
 const Main = () => {
 
   const [data, setData] = useState([])
+
 
   const getData = async() => {
     var requestOptions = {
@@ -12,7 +14,7 @@ const Main = () => {
       redirect: 'follow'
     };
     
-    fetch("http://147.182.217.131:8001/api/project/getproject", requestOptions)
+    fetch("http://localhost:8000/api/project/getproject", requestOptions)
       .then(response => response.text())
       .then(result => {
         // console.log("result==>",JSON.parse(result))
@@ -37,7 +39,7 @@ const Main = () => {
           <div className="row p-3 ">
             {data?.map((elem,id) => {
               return(
-                <Image src={elem} key={id} />
+                <Image src={elem} key={id} getData={getData} />
               )
             } )}
           </div>

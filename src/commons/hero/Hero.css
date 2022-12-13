@@ -8,3 +8,15 @@
 .container1 {
     height: 80%;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .hero {
+        padding-top : 100px;
+        height: 45vh;
+        width: 100%;
+    }
+    .container1 {
+        height: 70%;
+    }
+}

@@ -62,8 +62,9 @@ const Login = () => {
     return (
         <>
             <div className='container-fluid' style={{ height: '100vh' }}>
-                <div className="container border-rounded mt-5" style={{ height: '80%', maxHeight: '100vh', minHeight: '85vh' }}>
-                    <form className='m-5'>
+                <div className="container border-rounded" style={{ height: '70%', maxHeight: '80vh', minHeight: '70vh',marginTop:'10%' }}>
+                    <form className=''>
+                    <div className='pt-3 mt-3 ' >
                         <h3 className='mb-3'>Login In</h3>
                         <div className="mb-3">
                             <label>Email address</label>
@@ -90,6 +91,7 @@ const Login = () => {
                             <button type="submit" className="btn btn-primary" onClick={submit}>
                                 Submit
                             </button>
+                        </div>
                         </div>
                     </form>
                 </div>
